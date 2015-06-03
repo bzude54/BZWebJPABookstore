@@ -1,0 +1,38 @@
+{
+	"100": {
+			"userId": 100,
+			"firstName": "Jim",
+			"lastName": "Bob",
+			"userName": "bob",
+			"password": "pwd",
+			"addresses": {
+						"primary": {
+									"streetAddress": "12546 Fremont Ave N",
+									"city": "Seattle",
+									"state": "WA",
+									"zipcode": "98133",
+									"addressType": "primary"
+									},
+						"secondary": {
+									"streetAddress": "13245 Beaverton Hwy",
+									"city": "Bend",
+									"state": "OR",
+									"zipcode": "98444",
+									"addressType": "secondary"
+									}
+						},
+			"phoneNumber1": "206-574-8090",
+			"phoneNumber2": "206-555-1313",
+			"cards": {
+					"primary": {
+								"cardNumber": "1234567890987654",
+								"cardExpirationDate": "May 2017",
+								"cardType": "primary",
+								"cardCode": "999",
+								"cardOwnerName": "Bob Smith",
+								"cardVendor": "VISA",
+								"cardOwnerId": 100
+								}
+					}
+			}
+}

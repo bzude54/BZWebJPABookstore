@@ -1,0 +1,38 @@
+{
+	"100": {
+			"userId": 100,
+			"firstName": "George",
+			"lastName": "Jetson",
+			"userName": "bob",
+			"password": "pwd",
+			"addresses": [
+							 {
+									"streetAddress": "12546 42nd Ave N",
+									"city": "Seattle",
+									"state": "WA",
+									"zipcode": "98133",
+									"addressType": "primary"
+									},
+							 {
+									"streetAddress": "2222 Greenwood Ave N",
+									"city": "Bend",
+									"state": "AZ",
+									"zipcode": "98111",
+									"addressType": "secondary"
+									}
+						],
+			"phoneNumber1": "206-574-8090",
+			"phoneNumber2": "206-555-1313",
+			"cards": [
+							 {
+								"cardNumber": "1234567890987654",
+								"cardExpirationDate": "AUg 2018",
+								"cardType": "primary",
+								"cardCode": "999",
+								"cardOwnerName": "Bob Smith",
+								"cardVendor": "VISA",
+								"cardOwnerId": 100
+								}
+					]
+			}
+}

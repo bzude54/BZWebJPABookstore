@@ -1,0 +1,42 @@
+{
+	"978-0441569595": {
+		"isbn":"978-0441569595",
+		"title":"Neuromancer",
+		"description":"Case had been the sharpest data-thief in the business, until vengeful former employees crippled his nervous system. But now a new and very mysterious employer recruits him for a last-chance run.",
+		"author":"William Gibson",
+		"genre":"scifi",
+		"image":"neuromancer",
+		"price":"8.99"
+	},
+
+	"978-0553293357": {
+		"isbn":"978-0553293357",
+		"title":"Foundation",
+		"description":"For twelve thousand years the Galactic Empire has ruled supreme. Now it is dying. But only Hari Sheldon, creator of the revolutionary science of psychohistory, can see into the future--to a dark age of ignorance, barbarism, and warfare that will last thirty thousand years.",
+		"author":"Isaac Asimov",
+		"genre":"scifi",
+		"image":"foundation",
+		"price":"14.50"
+	},
+
+	"978-0553380163": {
+		"isbn":"978-0553380163",
+		"title":"A Brief History of Time",
+		"description":"A landmark volume in science writing by one of the great minds of our time, Stephen Hawking’s book explores such profound questions as: How did the universe begin-and what made its start possible?",
+		"author":"Stephen Hawking",
+		"genre":"non-fiction",
+		"image":"briefhistory",
+		"price":"12.00"
+	},
+
+	"978-0810998025": {
+		"isbn":"978-0810998025",
+		"title":"Industrial Light and Magic - The Art of Innovation",
+		"description":"An extensively illustrated oral history of the multi-Academy-Award winning visual effects company founded by George Lucas",
+		"author":"Pamela Glintenkamp",
+		"genre":"non-fiction",
+		"image":"ilminnovation",
+		"price":"57.50"
+	}
+	
+}
