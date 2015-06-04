@@ -19,9 +19,9 @@
 </c:otherwise>
 </c:choose>
 
-<form:form method="post" modelAttribute="bZUserInfo" action="bzaccountinfo">
+<form:form method="post" modelAttribute="customer" action="bzaccountinfo">
 <div style="width:300px;text-align:right">
-	<form:hidden path="userId"/>
+	<form:hidden path="id"/>
     <form:label path="userName">User Name:</form:label><form:input path="userName"/><br>
     <form:label path="firstName">First Name:</form:label><form:input path="firstName"/><br>
     <form:label path="lastName">Last Name:</form:label><form:input path="lastName"/><br>

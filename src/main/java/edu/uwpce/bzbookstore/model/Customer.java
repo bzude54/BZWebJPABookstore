@@ -33,6 +33,8 @@ public class Customer implements Serializable {
     @Column(name = "USERNAME")
     private String userName;
 
+    private String password;
+
  /*   @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID") // foreign key on CREDITCARD table to map back to CUSTOMER table
 */
@@ -77,6 +79,15 @@ public class Customer implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<CreditCard> getCreditCards() {

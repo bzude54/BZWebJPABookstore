@@ -41,14 +41,14 @@
               timeToLiveSeconds="86400"
        />
 -->
-       <cache name="edu.uwpce.bzude.data.model.Book"
+       <cache name="edu.uwpce.bzbookstore.model.Book"
               maxElementsInMemory="300"   eternal="false"
               timeToIdleSeconds="3600"  timeToLiveSeconds="3600"
               overflowToDisk="false"  diskPersistent="false"    />
 
 
 
-    <cache name="edu.uwpce.bzude.data.model.Genre"
+    <cache name="edu.uwpce.bzbookstore.model.Genre"
            maxElementsInMemory="300"   eternal="false"
            timeToIdleSeconds="3600"  timeToLiveSeconds="3600"
            overflowToDisk="false"  diskPersistent="false"    />
@@ -63,74 +63,6 @@
            diskPersistent="false"
            statistics="true"
             />
-
-    <!--
-           <cache name="edu.uw.data.lecture7.model.Product"
-                  maxElementsInMemory="300"
-                  eternal="false"
-                  timeToIdleSeconds="3600"
-                  timeToLiveSeconds="3600"
-                  overflowToDisk="false"
-                  diskPersistent="false"
-                   />
-
-           <cache name="edu.uw.data.lecture7.model.Productline"
-                  maxElementsInMemory="300"
-                  eternal="false"
-                  timeToIdleSeconds="3600"
-                  timeToLiveSeconds="3600"
-                  overflowToDisk="false"
-                  diskPersistent="false"
-                   />
-
-        <cache name="edu.uw.data.lecture7.model.Employee"
-               maxElementsInMemory="300"   eternal="false"
-               timeToIdleSeconds="300"  timeToLiveSeconds="300"
-               overflowToDisk="false"  diskPersistent="false"    />
-
-
-        <cache name="custorders"
-               maxElementsInMemory="100"
-               eternal="false"
-               timeToIdleSeconds="3600"
-               timeToLiveSeconds="3600"
-               overflowToDisk="false"
-               diskPersistent="false"
-               statistics="true"
-                />
-
-
-        <cache name="custoff"
-               maxElementsInMemory="100"
-               eternal="false"
-               timeToIdleSeconds="3600"
-               timeToLiveSeconds="3600"
-               overflowToDisk="false"
-               diskPersistent="false"
-               statistics="true"
-                />
-
-        <cache name="query.Product"
-               maxElementsInMemory="100"
-               eternal="false"
-               timeToIdleSeconds="3600"
-               timeToLiveSeconds="3600"
-               overflowToDisk="false"
-               diskPersistent="false"
-               statistics="true"
-                />
-
-
-        <cache name="query.ProductAvail"
-               maxElementsInMemory="100"
-               eternal="false"
-               timeToIdleSeconds="3600"
-               timeToLiveSeconds="3600"
-               overflowToDisk="false"
-               diskPersistent="false"
-               statistics="true"
-                />
-    -->
 
     <!-- TODO have to manually add in  statistics-->
 

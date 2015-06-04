@@ -18,7 +18,10 @@
 
 <!--    <cache:annotation-driven />   -->
 
-    <context:component-scan base-package="edu.uwpce.bzbookstore.dao" />
+    <context:component-scan base-package="edu.uwpce.bzbookstore">
+        <context:exclude-filter type="regex" expression="edu.uwpce.bzbookstore.web.*" />
+    </context:component-scan>
+
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />

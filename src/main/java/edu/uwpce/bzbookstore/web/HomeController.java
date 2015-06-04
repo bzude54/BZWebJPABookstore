@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -25,14 +26,14 @@ public class HomeController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping(value={"/","/home","/index"})
+    @RequestMapping(value={"/","/home","/index"}, method = RequestMethod.GET)
 
 	public ModelAndView homePage() {
         log.info("home");
 		ModelAndView mav = new ModelAndView();
         List<Book> books = bookDao.findAll();
         mav.addObject("books", books);
-		mav.setViewName("bzhome");
+		mav.setViewName("bzbooks");
 		return mav;
 	}
 

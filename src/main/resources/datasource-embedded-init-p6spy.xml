@@ -27,7 +27,7 @@
 
 
 
-    <jdbc:initialize-database data-source="dataSource" >
+    <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS" >
         <jdbc:script location="classpath:sql/bookstore-drop.sql" />
         <jdbc:script location="classpath:sql/bookstore-create.sql" />
 

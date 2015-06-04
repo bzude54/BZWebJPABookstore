@@ -6,15 +6,18 @@ import edu.uwpce.bzbookstore.model.CreditCard;
 import edu.uwpce.bzbookstore.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by bzude on 4/27/15.
  */
 @Transactional
-@org.springframework.stereotype.Service("service")
+@Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
     static final Logger log = LoggerFactory.getLogger(CustomerServiceImpl.class);
@@ -23,12 +26,47 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerDao customerDao;
 
     @Override
-    public Customer addCreditCardToUsername(String username, CreditCard card) {
+    public List<Customer> getCustomers() {
+        return null;
+    }
+
+    @Override
+    public void setCustomers(List<Customer> customers) {
+
+    }
+
+    @Override
+    public int addCustomer(Customer customer) {
+        return 0;
+    }
+
+    @Override
+    public Customer getCustomerByUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public Customer getCustomerById(int customerid) {
+        return null;
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+
+    }
+
+    @Override
+    public boolean deleteCustomer(int customerid) {
+        return false;
+    }
+
+    @Override
+    public Customer addCreditCardsToUsername(String username, Set<CreditCard> cardset) {
         Customer customer = customerDao.findByUsername(username);
         int countCardsBefore = customer.getCreditCards().size();
         log.info("before credit card add, " + customer.getUserName() + " has " + countCardsBefore + " creditcard(s)");
 
-        boolean result = customer.addCreditCard(card);
+        customer.setCreditCards(cardset);
         log.info("after credit card add, " + customer.getUserName() + " has " + customer.getCreditCards().size() + " creditcard(s)");
 
         return customer;
