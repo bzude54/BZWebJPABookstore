@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Controller
+//@Controller
 
 public class HomeController {
 
@@ -26,7 +26,7 @@ public class HomeController {
     @Autowired
     BookService bookService;
 
-    @RequestMapping(value={"/","/home","/index"}, method = RequestMethod.GET)
+//    @RequestMapping(value={"/","/home","/index"}, method = RequestMethod.GET)
 
 	public ModelAndView homePage() {
         log.info("home");

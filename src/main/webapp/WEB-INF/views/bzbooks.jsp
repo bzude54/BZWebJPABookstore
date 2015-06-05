@@ -20,7 +20,7 @@
 		<td><c:out value="${book.title}"/></td>
 		<td><c:out value="${book.description}"/></td>
 		<td><fmt:formatNumber value="${book.price}" type="currency"/></td>
-		<td><a href="bzbookdetails?id=${book.isbn}">Book Details</a></td>
+		<td><a href="/api/book/${book.isbn}">Book Details</a></td>
 	</tr>
 </c:forEach>
 </table>

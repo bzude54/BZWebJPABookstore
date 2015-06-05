@@ -18,7 +18,7 @@
 
 <p>If you do not have an account, please click <a href="<c:url value="/bzregister"/>" >here</a> to create one.</p>
 
-<p>To browse our complete book inventory, click <a href="<c:url value="/bzbooks"/>" >here.</a></p>
+<p>To browse our complete book inventory, click <a href="<c:url value="/api/book"/>" >here.</a></p>
 
 
 </body>
