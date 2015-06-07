@@ -37,7 +37,7 @@ public class BZHomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 	
-		return "bzhome";
+		return "home";
 	}
 	
 

@@ -1,10 +1,10 @@
-<%@ include file="bzinclude.jsp" %>
+<%@ include file="include.jsp" %>
 <html>
 <head>
 	<title><fmt:message key="confirmationpage"/></title>
 </head>
 <body>
-<%@ include file="bzheader.jsp"%>
+<%@ include file="header.jsp"%>
 
 <br />
 <h1>

@@ -1,11 +1,11 @@
-<%@ include file="bzinclude.jsp"%>
+<%@ include file="include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
     <title><fmt:message key="accountinfotitle"/></title>
 </head>
 <body>
- <%@ include file="bzheader.jsp"%>
+ <%@ include file="header.jsp"%>
  
 <p>Welcome ${ username }, here the info we have on file for you. Please update your information as necessary and submit.</p>
 

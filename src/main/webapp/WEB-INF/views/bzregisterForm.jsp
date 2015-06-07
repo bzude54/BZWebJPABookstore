@@ -1,4 +1,4 @@
-<%@ include file="bzinclude.jsp"%>
+<%@ include file="include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
     
 </head>
 <body>
-<%@ include file="bzheader.jsp"%>
+<%@ include file="header.jsp"%>
 
 <p>Welcome to <fmt:message key="newregtitle"/>, please enter your information below to create a new account.</p>
 <form:form method="post" modelAttribute="customer">

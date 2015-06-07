@@ -1,10 +1,10 @@
-<%@ include file="bzinclude.jsp" %>
+<%@ include file="include.jsp" %>
 <html>
 <head>
 	<title><fmt:message key="bookspage"/></title>
 </head>
 <body>
-<%@ include file="bzheader.jsp"%>
+<%@ include file="header.jsp"%>
 
 <br />
 
@@ -20,7 +20,7 @@
 		<td><c:out value="${book.title}"/></td>
 		<td><c:out value="${book.description}"/></td>
 		<td><fmt:formatNumber value="${book.price}" type="currency"/></td>
-		<td><a href="/api/book/${book.isbn}">Book Details</a></td>
+		<td><a href="<c:url value="/api/book/get/${book.isbn}"/>" >Book Details</a></td>
 	</tr>
 </c:forEach>
 </table>

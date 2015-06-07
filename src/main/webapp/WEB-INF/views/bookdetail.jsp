@@ -1,4 +1,4 @@
-<%@ include file="bzinclude.jsp" %>
+<%@ include file="include.jsp" %>
 <html>
 <head>
 	<title><fmt:message key="detailspage"/></title>
@@ -81,11 +81,11 @@
 
 </head>
 <body>
-<%@ include file="bzheader.jsp"%>
+<%@ include file="header.jsp"%>
 
 <br />
 <h1>
-	<fmt:message key="details"/> <c:out value="${book.title}"/> by <c:out value="${book.author}"/>
+	<fmt:message key="details"/> <c:out value="${book.title}"/>
 </h1>
 
 <br style="clear:both;" />
@@ -95,7 +95,7 @@
 
 <table border="1">
 	<tr><td width="15%">Book Title:</td><td><c:out value="${ book.title }"/></td></tr>
-	<tr><td>Book Author:</td><td><c:out value="${ book.author }"/></td></tr>
+	<tr><td>Book Author:</td><td><c:forEach items="${book.authors}" var="author"><c:out value="${author.firstName} "/><c:out value="${author.lastName}"/>, </c:forEach></td></tr>
 	<tr><td>Book Description:</td><td><c:out value="${ book.description }"/></td></tr>
 	<tr><td>Book Genre:</td><td><c:out value="${ book.genre.name }"/></td></tr>
 	<tr><td>Book ISBN:</td><td><c:out value="${ book.isbn }"/></td></tr>
@@ -105,7 +105,7 @@
 <c:if test="${not empty username}">	
 	<p><a href="<c:url value="/addtocart/${ book.isbn }"/>">Add this book to your cart.</a></p>
 </c:if>
-	<p><a href="<c:url value="/api/book"/>">return to book list</a></p>
+	<p><a href="<c:url value="/api/book/get"/>">return to book list</a></p>
 	
 	<div class="readreviews">Click here to read reviews.</div>
 	<div class="reviews"></div>

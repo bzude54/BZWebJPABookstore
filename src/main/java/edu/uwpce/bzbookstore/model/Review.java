@@ -4,22 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 public interface Review extends Serializable{
+
+	Integer getId();
+
+	void setId(Integer id);
 	
 	String getReviewText();
 		
 	void setReviewText(String reviewText);
 
-	void setReviewIsbn(String isbn);
+	void setIsbn(String isbn);
 	
-	String getReviewIsbn();
+	String getIsbn();
 
 	long getTimeStamp();
 
 	void setTimeStamp(long timeStamp);
-	
-	String getReviewUuid();
-	
-	void setReviewUuid(String uuid);
 
 	
 }

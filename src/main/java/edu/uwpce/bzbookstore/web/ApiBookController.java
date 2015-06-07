@@ -9,14 +9,16 @@ import edu.uwpce.bzbookstore.model.Book;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/api")
 public class ApiBookController {
 
@@ -33,24 +35,26 @@ public class ApiBookController {
     }
 */
 
-@RequestMapping(value="/book", method=RequestMethod.GET)
+@RequestMapping(value="/book/get", method=RequestMethod.GET)
     public ModelAndView getAllBooks() {
         log.info("getting all books");
         ModelAndView mav = new ModelAndView();
         List<Book> books = bookService.findAllBooks();
         mav.addObject("books", books);
-        mav.setViewName("bzbooks");
+        mav.setViewName("book");
         return mav;
     }
 
 
-    @RequestMapping(value="/book/{isbn}", method=RequestMethod.GET)
+    @RequestMapping(value="/book/get/{isbn}", method=RequestMethod.GET)
     public ModelAndView getBookByIsbn(@PathVariable("isbn") String isbn) {
+        log.info("looking for book with isbn: " + isbn);
         Book book = bookService.findBookByIsbn(isbn);
         ModelAndView mav = new ModelAndView();
         if (book != null) {
+            log.info("found book with isbn: " + isbn);
             mav.addObject("book", book);
-            mav.setViewName("bzbookdetails");
+            mav.setViewName("bookdetail");
             return mav;
         } else {
             log.error("Book with ISBN=" + isbn + " does not exist.");

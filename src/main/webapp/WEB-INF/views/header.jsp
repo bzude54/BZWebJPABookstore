@@ -1,4 +1,4 @@
-<%@ include file="bzinclude.jsp" %>
+<%@ include file="include.jsp" %>
 <div style="text-align:left">
 <c:choose>
 <c:when test="${empty username}">

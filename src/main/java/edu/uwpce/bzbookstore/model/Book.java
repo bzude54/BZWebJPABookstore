@@ -55,6 +55,10 @@ public class Book implements Serializable {
 	@Column(name = "PRICE")
 	private BigDecimal price;
 
+	@OneToMany
+	@JoinColumn(name = "REVIEW_ID")
+	private Set<Review> reviews = new TreeSet<Review>();
+
 
 
 	public Integer getId() {
