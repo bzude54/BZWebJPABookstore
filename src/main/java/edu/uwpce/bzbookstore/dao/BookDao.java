@@ -1,10 +1,7 @@
 package edu.uwpce.bzbookstore.dao;
 
 
-import edu.uwpce.bzbookstore.model.Author;
-import edu.uwpce.bzbookstore.model.Book;
-import edu.uwpce.bzbookstore.model.BookSearchForm;
-import edu.uwpce.bzbookstore.model.Genre;
+import edu.uwpce.bzbookstore.model.*;
 
 import java.util.List;
 
@@ -42,6 +39,10 @@ public interface BookDao {
   List<Book> getBooksByAuthor(String lastname, String firstname);
 
   List<Author> addAuthorToBook(Author newauthor, String booktitle);
+
+  List<Review> findAllReviews(String isbn);
+
+  List<Review> addReview (String isbn, Review review);
 
   org.hibernate.stat.Statistics getHibernateStatistics();
 

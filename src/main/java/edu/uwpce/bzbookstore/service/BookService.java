@@ -4,6 +4,7 @@ package edu.uwpce.bzbookstore.service;
 import edu.uwpce.bzbookstore.model.Author;
 import edu.uwpce.bzbookstore.model.Book;
 import edu.uwpce.bzbookstore.model.Genre;
+import edu.uwpce.bzbookstore.model.Review;
 import org.hibernate.stat.Statistics;
 
 import java.util.List;
@@ -39,6 +40,10 @@ public interface BookService {
     boolean deleteBook(Book bookdelete);
 
     void refreshBooks();
+
+    List<Review> findReviewsByIsbn(String isbn);
+
+    List<Review> addReviewToIsbn(String isbn, Review review);
 
     Statistics getHibernateStatistics();
 

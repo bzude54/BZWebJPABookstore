@@ -56,7 +56,8 @@ public class Book implements Serializable {
 	private BigDecimal price;
 
 	@OneToMany
-	@JoinColumn(name = "REVIEW_ID")
+	@JoinColumn(name = "BOOK_ISBN")
+//	@OneToMany(mappedBy="book",orphanRemoval = true ,fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	private Set<Review> reviews = new TreeSet<Review>();
 
 
@@ -164,11 +165,21 @@ public class Book implements Serializable {
 		return price;
 	}
 
+
+	public Set<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(Set<Review> reviews) {
+		this.reviews = reviews;
+	}
+
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	
-	
+
+
 	public String toString() {
 	    return "Book {" +
 	    		"ID = " + id +

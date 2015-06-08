@@ -54,6 +54,12 @@
            overflowToDisk="false"  diskPersistent="false"    />
 
 
+    <cache name="edu.uwpce.bzbookstore.model.Review"
+           maxElementsInMemory="300"   eternal="false"
+           timeToIdleSeconds="3600"  timeToLiveSeconds="3600"
+           overflowToDisk="false"  diskPersistent="false"    />
+
+
     <cache name="booksByGenre"
            maxElementsInMemory="100"
            eternal="false"

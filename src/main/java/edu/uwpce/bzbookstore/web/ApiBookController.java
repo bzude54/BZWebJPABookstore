@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import edu.uwpce.bzbookstore.model.Review;
 import edu.uwpce.bzbookstore.service.BookService;
 import edu.uwpce.bzbookstore.model.Book;
 import org.slf4j.Logger;
@@ -50,18 +51,48 @@ public class ApiBookController {
     public ModelAndView getBookByIsbn(@PathVariable("isbn") String isbn) {
         log.info("looking for book with isbn: " + isbn);
         Book book = bookService.findBookByIsbn(isbn);
+        List<Review> reviews= bookService.findReviewsByIsbn(isbn);
         ModelAndView mav = new ModelAndView();
         if (book != null) {
             log.info("found book with isbn: " + isbn);
             mav.addObject("book", book);
+//            mav.setViewName("bookdetail");
+        } else {
+            log.error("Book with ISBN=" + isbn + " does not exist.");
+            mav = null;
+        }
+        if (reviews != null) {
+            log.info("found reviews for isbn: " + isbn);
+            mav.addObject("reviews", reviews);
+//            mav.setViewName("bookdetail");
+        } else {
+            log.error("Reviews for book with ISBN=" + isbn + " do not exist.");
+            return null;
+        }
+        mav.setViewName("bookdetail");
+        return mav;
+
+    }
+
+
+    @RequestMapping(value="/book/get/{isbn}/review", method=RequestMethod.GET)
+    public ModelAndView getReviewsByIsbn(@PathVariable("isbn") String isbn) {
+        log.info("looking for book reviews for isbn: " + isbn);
+        List<Review> reviews= bookService.findReviewsByIsbn(isbn);
+        ModelAndView mav = new ModelAndView();
+        if (reviews != null) {
+            log.info("found reviews for isbn: " + isbn);
+            mav.addObject("reviews", reviews);
             mav.setViewName("bookdetail");
             return mav;
         } else {
-            log.error("Book with ISBN=" + isbn + " does not exist.");
+            log.error("Reviews for book with ISBN=" + isbn + " do not exist.");
             return null;
         }
     }
-    
+
+
+
     @RequestMapping(value="/book", method=RequestMethod.POST)
     public Object createBook(@RequestBody Book book, HttpServletResponse response) {
         if (bookService.findBookByIsbn(book.getIsbn()) != null) {

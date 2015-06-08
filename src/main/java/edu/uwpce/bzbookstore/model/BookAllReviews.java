@@ -6,10 +6,10 @@ import java.util.List;
 public class BookAllReviews {
 	
 	private String isbn;
-	private List<BookReview> reviews;
+	private List<Review> reviews;
 	
 	public BookAllReviews() {
-		this.reviews = new ArrayList<BookReview>();
+		this.reviews = new ArrayList<Review>();
 	}
 		
 	public void setIsbn(String isbn) {
@@ -20,7 +20,7 @@ public class BookAllReviews {
 	 return this.isbn;	
 	}
 		
-	public void setReview(BookReview review) {
+	public void setReview(Review review) {
 		this.reviews.add(review);
 	}
 
@@ -28,11 +28,11 @@ public class BookAllReviews {
 		return (Review) reviews.get(index);
 	}
 	
-	void setReviews(List<BookReview> reviews) {
+	void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
 	
-	List<BookReview> getReviews() {
+	List<Review> getReviews() {
 		return reviews;
 	}
 }

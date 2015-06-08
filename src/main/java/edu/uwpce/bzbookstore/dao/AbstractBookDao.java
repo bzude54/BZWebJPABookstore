@@ -1,9 +1,6 @@
 package edu.uwpce.bzbookstore.dao;
 
-import edu.uwpce.bzbookstore.model.Author;
-import edu.uwpce.bzbookstore.model.Book;
-import edu.uwpce.bzbookstore.model.BookSearchForm;
-import edu.uwpce.bzbookstore.model.Genre;
+import edu.uwpce.bzbookstore.model.*;
 
 
 import java.util.List;
@@ -44,6 +41,12 @@ public class AbstractBookDao implements BookDao {
 	public List<Author> addAuthorToBook(Author newauthor, String booktitle) { throw new UnsupportedOperationException(); }
 
 	public Book findById(Integer id) { throw new UnsupportedOperationException(); }
+
+	public List<Review> findAllReviews(String isbn) { throw new UnsupportedOperationException(); }
+
+	public List<Review> addReview(String isbn, Review review) {
+		return null;
+	}
 
 	public org.hibernate.stat.Statistics getHibernateStatistics() { throw new UnsupportedOperationException(); }
 

@@ -106,9 +106,17 @@
 	<p><a href="<c:url value="/addtocart/${ book.isbn }"/>">Add this book to your cart.</a></p>
 </c:if>
 	<p><a href="<c:url value="/api/book/get"/>">return to book list</a></p>
-	
-	<div class="readreviews">Click here to read reviews.</div>
-	<div class="reviews"></div>
+
+<br style="clear:both;" /><br />
+
+<table border="1">
+	<c:forEach items="${reviews}" var="review">
+		<tr>
+			<td><c:out value="${review.reviewText}"/></td>
+			<td><c:out value="${review.timeStamp}"/></td>
+		</tr>
+	</c:forEach>
+</table>
 	
 	<br style="clear:both;" /><br />
 	
