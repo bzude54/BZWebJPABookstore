@@ -28,14 +28,14 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
-    @RequestMapping(value = "/bzlogin", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView displayLoginForm() {
     	
     	
-        return new ModelAndView("bzlogin", "loginCustomer", new Customer());
+        return new ModelAndView("login", "loginCustomer", new Customer());
     }
 
-    @RequestMapping(value = "/bzlogin", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String processLogin(HttpSession session,
                                @ModelAttribute("Customer") Customer loginCustomerInfo) {
     	
@@ -60,37 +60,37 @@ public class CustomerController {
             session.setAttribute("username", customers.get(customerid).getUserName());
             session.setAttribute("customerid", customers.get(customerid).getId());
 //            logger.info("userid after login is: " + customers.get(userid).getUserId());
-           return "redirect:/bzbooks";
+           return "redirect:/books";
     		
     	} else {
 
-    		return "redirect:/bzregister";
+    		return "redirect:/register";
     	}
     }
 
-    @RequestMapping(value = "/bzregister", method = RequestMethod.GET)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView displayRegisterForm() {
 
         // This is a shortcut if we only have one attribute to put in our model
-        return new ModelAndView("bzregisterForm", "customer", new Customer());
+        return new ModelAndView("registerForm", "customer", new Customer());
     }
 
-    @RequestMapping(value = "/bzregister", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegister(HttpSession session,
                                @ModelAttribute @Valid Customer customer, Errors errors) {
 
         if (errors.hasErrors()) {
-            return "bzregisterForm";
+            return "registerForm";
         }
       
     	customerService.addCustomer(customer);
         session.setAttribute("username", customer.getUserName());
         session.setAttribute("customerid", customer.getId());
        logger.info("new customerid after register is: " + customer.getId());
-        return "redirect:/bzlogin";
+        return "redirect:/login";
     }
     
-    @RequestMapping(value = "/bzaccountinfo/{userid}", method = RequestMethod.GET)
+    @RequestMapping(value = "/accountinfo/{customerid}", method = RequestMethod.GET)
     public ModelAndView displayAccountInfoForm(HttpSession session, Model model, @PathVariable("customerid") int customerid) {
     	
     	Customer customer = customerService.getCustomerById(customerid);
@@ -102,21 +102,21 @@ public class CustomerController {
     		int newuserid =	customerService.addCustomer(new Customer());
     		customer = customerService.getCustomerById(newuserid);
     	}
-        return new ModelAndView("bzaccountinfo", "customer", customer);
+        return new ModelAndView("accountinfo", "customer", customer);
     	
     }
     
     
-    @RequestMapping(value = "/bzaccountinfo/{userid}", method = RequestMethod.POST)
+    @RequestMapping(value = "/accountinfo/{customerid}", method = RequestMethod.POST)
     public String processAccountInfoForm(HttpSession session, @ModelAttribute @Valid Customer customer, Errors errors) {
     	
     	
         if (errors.hasErrors()) {
-        	return "bzaccountinfo";
+        	return "accountinfo";
         }
       
 
-    	int userid = customer.getId();
+    	int customerid = customer.getId();
 //		logger.info("in bzacctinfo, userid is: " + userid);
     	String username = customer.getUserName();
 //    	 logger.info("in bzacctinfo, username is: " + username);
@@ -161,16 +161,16 @@ public class CustomerController {
 			user.setCreditCard2(customer.getCreditCard2());
 			session.setAttribute("creditcard2", user.getCreditCard2());
 */
-			Customer user = customerService.getCustomerById(userid);
+			Customer user = customerService.getCustomerById(customerid);
 			customerService.updateCustomer(customer);
-			return "redirect:/bzaccountinfo/" + userid;
+			return "redirect:/accountinfo/" + customerid;
 		
 		
     }
      
     
 
-    @RequestMapping(value = "/bzlogout", method = RequestMethod.GET)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
 
         session.removeAttribute("username");

@@ -26,10 +26,10 @@
     $(document).ready(function($) {
         $('div.readreviews').click(function() {
             $.ajax({
-                type : 'POST',
-                url : 'showreviews',
+                type : 'GET',
+                url : 'reviews',
                 data : {
-                    'isbn':'${ bookDetail.ISBN }'
+                    'isbn':'${ book.isbn }'
                 },
                 dataType : "json",
                 cache : 'false',
@@ -54,10 +54,11 @@
         $('div.postreview').click(function() {
             $.ajax({
                 type : 'POST',
-                url : 'postreview',
+                url : 'reviews',
                 data : {
-                    'isbn':'${ bookDetail.ISBN }',
-                    'reviewText': $("#userreview").val()
+					'id':'${ book.id }',
+                    'isbn':'${ book.isbn }',
+                    'reviewText': $("#customerreview").val()
                 },
                 dataType : "json",
                 cache : 'false',
@@ -105,7 +106,7 @@
 <c:if test="${not empty username}">	
 	<p><a href="<c:url value="/addtocart/${ book.isbn }"/>">Add this book to your cart.</a></p>
 </c:if>
-	<p><a href="<c:url value="/api/book/get"/>">return to book list</a></p>
+	<p><a href="<c:url value="/books"/>">return to book list</a></p>
 
 <br style="clear:both;" /><br />
 
@@ -123,7 +124,7 @@
 
 	<form name="postreview" method="POST" onsubmit="return postreview()" action="">
 		<table>
-		<tr><td>Enter your book review.</td><td><textarea name="userreview" id="userreview" rows="5" cols="60"></textarea></td></tr>
+		<tr><td>Enter your book review.</td><td><textarea name="customerreview" id="customerreview" rows="5" cols="60"></textarea></td></tr>
 		<tr><td></td><td></td></tr>
 		<tr><td colspan="2"><div class="postreview">Click here to post your review.</div></td></tr>
 		</table>

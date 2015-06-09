@@ -44,7 +44,9 @@ public class AbstractBookDao implements BookDao {
 
 	public List<Review> findAllReviews(String isbn) { throw new UnsupportedOperationException(); }
 
-	public List<Review> addReview(String isbn, Review review) {
+	public List<Review> findAllReviews(Integer bookid) { throw new UnsupportedOperationException(); }
+
+	public List<Review> addReview(Review review) {
 		return null;
 	}
 

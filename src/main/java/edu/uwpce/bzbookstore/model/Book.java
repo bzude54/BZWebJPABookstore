@@ -56,7 +56,7 @@ public class Book implements Serializable {
 	private BigDecimal price;
 
 	@OneToMany
-	@JoinColumn(name = "BOOK_ISBN")
+	@JoinColumn(name = "BOOK_ID")
 //	@OneToMany(mappedBy="book",orphanRemoval = true ,fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
 	private Set<Review> reviews = new TreeSet<Review>();
 

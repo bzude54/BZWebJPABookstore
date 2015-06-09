@@ -14,11 +14,11 @@
 
 <br style="clear:both;" />
 
-<p>If you already have an account with us, please click <a href="<c:url value="/api/customer/get"/>" >here</a> to login.</p>
+<p>If you already have an account with us, please click <a href="<c:url value="/customers/login"/>" >here</a> to login.</p>
 
-<p>If you do not have an account, please click <a href="<c:url value="/api/customer/post"/>" >here</a> to create one.</p>
+<p>If you do not have an account, please click <a href="<c:url value="/customers/newaccount"/>" >here</a> to create one.</p>
 
-<p>To browse our complete book inventory, click <a href="<c:url value="/api/book/get"/>" >here.</a></p>
+<p>To browse our complete book inventory, click <a href="<c:url value="/books"/>" >here.</a></p>
 
 
 </body>

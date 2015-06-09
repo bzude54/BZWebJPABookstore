@@ -43,7 +43,9 @@ public interface BookService {
 
     List<Review> findReviewsByIsbn(String isbn);
 
-    List<Review> addReviewToIsbn(String isbn, Review review);
+    List<Review> findReviewsById(Integer bookid);
+
+    List<Review> addReview(Review review);
 
     Statistics getHibernateStatistics();
 

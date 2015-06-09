@@ -25,6 +25,7 @@ import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.Metamodel;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 @Repository("bookDao")
@@ -329,18 +330,32 @@ public class JPABookDao extends AbstractBookDao implements BookDao {
     }
 
 
+    @Override
+    public List<Review> findAllReviews(Integer bookid) {
+        List<Review> reviewlist = (List<Review>)em.createQuery(
+                "SELECT r FROM Review r WHERE r.bookId LIKE :bookid ORDER BY r.timeStamp DESC")
+                .setParameter("bookid", bookid)
+                .setHint("org.hibernate.cacheable", true) //enable cache
+                .getResultList();
+         return reviewlist;
+    }
+
+    @Override
     public List<Review> findAllReviews(String isbn) {
         List<Review> reviewlist = (List<Review>)em.createQuery(
                 "SELECT r FROM Review r WHERE r.bookIsbn LIKE :isbn ORDER BY r.timeStamp DESC")
                 .setParameter("isbn", isbn)
                 .setHint("org.hibernate.cacheable", true) //enable cache
                 .getResultList();
-         return reviewlist;
+        return reviewlist;
     }
 
-
-    public List<Review> addReview(String isbn, Review review) {
-        return null;
+    public List<Review> addReview(Review review) {
+        Book targetbook = this.findByISBN(review.getBookIsbn());
+        Set<Review> reviews = targetbook.getReviews();
+        reviews.add(review);
+        em.merge(reviews);
+        return this.findAllReviews(review.getBookId());
     }
 
 

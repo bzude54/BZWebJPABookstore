@@ -42,7 +42,9 @@ public interface BookDao {
 
   List<Review> findAllReviews(String isbn);
 
-  List<Review> addReview (String isbn, Review review);
+  List<Review> findAllReviews(Integer bookid);
+
+  List<Review> addReview (Review review);
 
   org.hibernate.stat.Statistics getHibernateStatistics();
 

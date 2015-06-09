@@ -20,6 +20,9 @@ public class Review implements Comparable, Serializable {
 	@Column(name = "ID")
 	private Integer id;
 
+	@Column(name = "BOOK_ID")
+	private Integer bookId;
+
 	@Column(name = "BOOK_ISBN")
 	private String bookIsbn;
 
@@ -39,7 +42,8 @@ public class Review implements Comparable, Serializable {
 
 	public Review() {	}
 	
-	public Review(String isbn, String reviewtext, Date timestamp) {
+	public Review(Integer id, String isbn, String reviewtext, Date timestamp) {
+		this.bookId = id;
 		this.bookIsbn = isbn;
 		this.reviewText = reviewtext;
 		this.timeStamp = timestamp;
@@ -51,6 +55,14 @@ public class Review implements Comparable, Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(Integer bookid) {
+		this.bookId = bookid;
 	}
 
 	public String getBookIsbn() {
