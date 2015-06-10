@@ -128,7 +128,7 @@ public class BookController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/reviews", method = RequestMethod.GET)
+    @RequestMapping(value = "/books/reviews", method = RequestMethod.GET)
     public List<Review> getBookReviews(@RequestParam String isbn, Model model) {
         logger.info("ISBN from ajax = " + isbn);
 /*        List<Review> reviews = bookService.getBookReviews(isbn);
@@ -165,11 +165,13 @@ public class BookController {
 //    	newreview.setTimeStamp(new Date());
         bookService.addReview(newreview);
         List<Review> reviews = bookService.findReviewsByIsbn(isbn);
+/*
         logger.info("reviews from post text1 = " + reviews.get(0).getReviewText());
         logger.info("reviews from post text2 = " + reviews.get(1).getReviewText());
         logger.info("reviews from post text3 = " + reviews.get(2).getReviewText());
         logger.info("reviews from post text4 = " + reviews.get(3).getReviewText());
         logger.info("reviews from post text5 = " + reviews.get(4).getReviewText());
+*/
 
 
 
