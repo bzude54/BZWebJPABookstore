@@ -62,8 +62,9 @@
                 },
                 dataType : "json",
                 cache : 'false',
-                success : function(response) {                	
-                	$('div.reviews').html('');
+                success : function(response) {
+					alert('SUCCESS!!!');
+					$('div.reviews').html('');
                 	$.each(response, function(idx, obj) {
                 		var reviewtext = $("<div style='width:600px; float:left;'></div>").text(obj.reviewText);
                 		var date = new Date(obj.timeStamp);
@@ -110,7 +111,11 @@
 
 <br style="clear:both;" /><br />
 
-<table border="1">
+
+<div class="readreviews">Click here to read reviews.</div>
+
+
+<table border="1" id="initreviews">
 	<c:forEach items="${reviews}" var="review">
 		<tr>
 			<td><c:out value="${review.reviewText}"/></td>
@@ -120,7 +125,10 @@
 </table>
 	
 	<br style="clear:both;" /><br />
-	
+
+<div class="reviews"></div>
+
+<br style="clear:both;" /><br />
 
 	<form name="postreview" method="POST" onsubmit="return postreview()" action="">
 		<table>

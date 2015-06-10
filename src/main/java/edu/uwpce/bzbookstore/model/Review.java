@@ -1,5 +1,8 @@
 package edu.uwpce.bzbookstore.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -13,6 +16,8 @@ public class Review implements Comparable, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8545327746357214420L;
+
+	static final Logger logger = LoggerFactory.getLogger(Review.class);
 
 
 	@Id
@@ -47,6 +52,7 @@ public class Review implements Comparable, Serializable {
 		this.bookIsbn = isbn;
 		this.reviewText = reviewtext;
 		this.timeStamp = timestamp;
+		logger.info("CREATED NEW REVIEW WITH ID: " + this.bookId + ", isbn: " + this.bookIsbn + ", reviewtext: " + this.getReviewText() + ", timestamp: " + this.getTimeStamp());
 	}
 
 	public Integer getId() {
@@ -93,6 +99,35 @@ public class Review implements Comparable, Serializable {
 		this.timeStamp = timeStamp;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Review)) return false;
+
+		Review review = (Review) o;
+
+		if (!getBookId().equals(review.getBookId())) return false;
+		if (!getBookIsbn().equals(review.getBookIsbn())) return false;
+		return getTimeStamp().equals(review.getTimeStamp());
+
+	}
+
+	@Override
+	public int hashCode() {
+		logger.info("in hashcode method. review isbn is: " + getBookIsbn());
+
+		return getBookIsbn().hashCode();
+	}
+/*
+	@Override
+	public int hashCode() {
+	//	int result = getBookId().hashCode();
+		int result = 31 * result + getBookIsbn().hashCode();
+	//	result = 31 * result + getTimeStamp().hashCode();
+		return result;
+	}
+*/
+
 /*
 	public Book getBook() {
 		return book;
@@ -103,24 +138,7 @@ public class Review implements Comparable, Serializable {
 	}
 */
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Review)) return false;
 
-		Review that = (Review) o;
-
-		if (!getBookIsbn().equals(that.getBookIsbn())) return false;
-		return getTimeStamp().equals(that.getTimeStamp());
-
-	}
-
-	@Override
-	public int hashCode() {
-		int result = getBookIsbn().hashCode();
-		result = 31 * result + getTimeStamp().hashCode();
-		return result;
-	}
 
 	@Override
 	public int compareTo(Object o) {

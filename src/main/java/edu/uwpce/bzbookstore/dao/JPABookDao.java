@@ -333,7 +333,7 @@ public class JPABookDao extends AbstractBookDao implements BookDao {
     @Override
     public List<Review> findAllReviews(Integer bookid) {
         List<Review> reviewlist = (List<Review>)em.createQuery(
-                "SELECT r FROM Review r WHERE r.bookId LIKE :bookid ORDER BY r.timeStamp DESC")
+                "SELECT r FROM Review r WHERE r.bookId = :bookid ORDER BY r.timeStamp DESC")
                 .setParameter("bookid", bookid)
                 .setHint("org.hibernate.cacheable", true) //enable cache
                 .getResultList();
@@ -351,11 +351,16 @@ public class JPABookDao extends AbstractBookDao implements BookDao {
     }
 
     public List<Review> addReview(Review review) {
+        if ((review.getBookIsbn() != null) && (review.getTimeStamp() != null)) {
+            em.persist(review);
+            em.flush();
+        }
         Book targetbook = this.findByISBN(review.getBookIsbn());
         Set<Review> reviews = targetbook.getReviews();
         reviews.add(review);
-        em.merge(reviews);
-        return this.findAllReviews(review.getBookId());
+        targetbook.setReviews(reviews);
+        em.merge(targetbook);
+        return this.findAllReviews(review.getBookIsbn());
     }
 
 

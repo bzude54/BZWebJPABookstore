@@ -156,8 +156,9 @@ public class BookController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/reviews", method = RequestMethod.POST)
+    @RequestMapping(value = "/books/reviews", method = RequestMethod.POST)
     public List<Review> postReview(HttpSession session, @RequestParam int id, @RequestParam String isbn, @RequestParam String reviewText) {
+        logger.debug("IN THE POST REVIEWS HANDLER WITH ID: " + id + ", AND ISBN: " + isbn + ", review text: " + reviewText);
         Review newreview = new Review(id, isbn, reviewText, new Date());
 //    	newreview.setReviewIsbn(bookIsbn);
 //    	newreview.setReviewText(review.getReviewText());
@@ -169,6 +170,7 @@ public class BookController {
         logger.info("reviews from post text3 = " + reviews.get(2).getReviewText());
         logger.info("reviews from post text4 = " + reviews.get(3).getReviewText());
         logger.info("reviews from post text5 = " + reviews.get(4).getReviewText());
+
 
 
         return reviews;
