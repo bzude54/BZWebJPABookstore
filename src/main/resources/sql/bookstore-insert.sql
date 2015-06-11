@@ -86,16 +86,17 @@ INSERT INTO BOOK (ISBN,   TITLE,     GENRE_ID, PRICE, DESCRIPTION )
 
 
 INSERT INTO REVIEW (BOOK_ID, BOOK_ISBN, REVIEW_TEXT, REVIEW_TIMESTAMP )
-            values (11, '978-0555555555', 'worthy of a Pulitzer Prize!', '2014-09-23-00.00.00');
+            values (11, '978-0555555555', 'worthy of a Pulitzer Prize!', '2014-09-23-12.24.36');
 
 INSERT INTO REVIEW (BOOK_ID, BOOK_ISBN, REVIEW_TEXT, REVIEW_TIMESTAMP )
-            values (11, '978-0555555555', 'it is CRRRRAPPPPP!!!', '2014-11-10-00.00.00');
+            values (11, '978-0555555555', 'it is CRRRRAPPPPP!!!', '2014-11-10-09.18.24');
 
 INSERT INTO REVIEW (BOOK_ID, BOOK_ISBN, REVIEW_TEXT, REVIEW_TIMESTAMP )
-            values (11, '978-0555555555', 'LOVE IT!!!', '2014-07-02-00.00.00');
+            values (11, '978-0555555555', 'could not have done it any better', '2014-01-30-18.09.27');
 
 INSERT INTO REVIEW (BOOK_ID, BOOK_ISBN, REVIEW_TEXT, REVIEW_TIMESTAMP )
-            values (11, '978-0555555555', 'could not have done it any better', '2014-01-30-00.00.00');
+            values (11, '978-0555555555', 'LOVE IT!!!', '2014-09-23-03.03.03');
+
 
 
 INSERT INTO AUTHOR (FIRST_NAME, LAST_NAME) values ('Craig','Walls');

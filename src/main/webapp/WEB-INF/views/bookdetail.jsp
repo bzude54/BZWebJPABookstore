@@ -36,9 +36,9 @@
                 success : function(response) { 
                 	$('div.reviews').html('');
                 	$.each(response, function(idx, obj) {
-                		var reviewtext = $("<div style='width:600px; float:left;'></div>").text(obj.reviewText);
+                		var reviewtext = $("<div style='width:500px; float:left; border: 1px solid black; margin: 5px 0;'></div>").text(obj.reviewText);
                 		var date = new Date(obj.timeStamp);
-                		var reviewtimestamp = $("<div style='width:300px; color:red; float:left; text-align:right;'></div>").text(date.toLocaleString());
+                		var reviewtimestamp = $("<div style='width:300px; color:red; float:left; text-align:right; border: 1px solid black; margin: 5px 0;'></div><br style='clear:both;'/>").text(date.toLocaleString());
                 		$('div.reviews').append(reviewtext, reviewtimestamp);
                 	});                   
                 },
@@ -66,9 +66,9 @@
 					alert('SUCCESS!!!');
 					$('div.reviews').html('');
                 	$.each(response, function(idx, obj) {
-                		var reviewtext = $("<div style='width:600px; float:left;'></div>").text(obj.reviewText);
+                		var reviewtext = $("<div style='width:500px; float:left; border: 1px solid black; margin: 5px 0;'></div>").text(obj.reviewText);
                 		var date = new Date(obj.timeStamp);
-                		var reviewtimestamp = $("<div style='width:300px; color:red; float:left; text-align:right;'></div>").text(date.toLocaleString());
+						var reviewtimestamp = $("<div style='width:300px; color:red; float:left; text-align:right; border: 1px solid black; margin: 5px 0;'></div><br style='clear:both;'/>").text(date.toLocaleString());
                 		$('div.reviews').append(reviewtext, reviewtimestamp);
                 	});                   
                 },
@@ -115,15 +115,6 @@
 <div class="readreviews">Click here to read reviews.</div>
 
 
-<table border="1" id="initreviews">
-	<c:forEach items="${reviews}" var="review">
-		<tr>
-			<td><c:out value="${review.reviewText}"/></td>
-			<td><c:out value="${review.timeStamp}"/></td>
-		</tr>
-	</c:forEach>
-</table>
-	
 	<br style="clear:both;" /><br />
 
 <div class="reviews"></div>

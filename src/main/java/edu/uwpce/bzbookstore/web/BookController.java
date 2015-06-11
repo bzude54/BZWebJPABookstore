@@ -146,12 +146,12 @@ public class BookController {
         Review review = reviews.get(0);
 */
         List<Review> reviews = bookService.findReviewsByIsbn(isbn);
-/*
-        logger.info("reviews text1 = " + reviews.get(0).getReviewText());
-        logger.info("reviews text2 = " + reviews.get(1).getReviewText());
-        logger.info("reviews text3 = " + reviews.get(2).getReviewText());
-        logger.info("reviews text4 = " + reviews.get(3).getReviewText());
-*/
+
+        logger.info("reviews text1 = " + reviews.get(0).getTimeStamp());
+        logger.info("reviews text2 = " + reviews.get(1).getTimeStamp());
+        logger.info("reviews text3 = " + reviews.get(2).getTimeStamp());
+        logger.info("reviews text4 = " + reviews.get(3).getTimeStamp());
+
         return reviews;
     }
 
