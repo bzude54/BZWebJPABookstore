@@ -132,29 +132,10 @@ public class BookController {
     @RequestMapping(value = "/books/reviews", method = RequestMethod.GET)
     public List<Review> getBookReviews(@RequestParam String isbn, Model model) {
         logger.info("ISBN from ajax = " + isbn);
-/*        List<Review> reviews = bookService.getBookReviews(isbn);
-        if (reviews == null){
-    	Review newreview1 = new Review(isbn, "My first review", new Date());
-    	reviews.add(newreview1);
-    	Review newreview2 = new Review(isbn, "My second review", new Date());
-    	reviews.add(newreview2);
-    	Review newreview3 = new Review(isbn, "My third review", new Date());
-    	reviews.add(newreview3);
-    	Review newreview4 = new Review(isbn, "My fourth review", new Date());
-    	reviews.add(newreview4);
-    	bookService.setBookReviews(reviews);
-        }
-        Review review = reviews.get(0);
-*/
         List<Review> reviews = bookService.findReviewsByIsbn(isbn);
-
-/*
-        logger.info("reviews text1 = " + reviews.get(0).getTimeStamp());
-        logger.info("reviews text2 = " + reviews.get(1).getTimeStamp());
-        logger.info("reviews text3 = " + reviews.get(2).getTimeStamp());
-        logger.info("reviews text4 = " + reviews.get(3).getTimeStamp());
-*/
-
+        if (reviews.size() == 0){
+            reviews = null;
+        }
         return reviews;
     }
 

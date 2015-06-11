@@ -63,7 +63,6 @@
                 dataType : "json",
                 cache : 'false',
                 success : function(response) {
-					alert('SUCCESS!!!');
 					$('div.reviews').html('');
                 	$.each(response, function(idx, obj) {
                 		var reviewtext = $("<div style='width:500px; float:left; border: 1px solid black; margin: 5px 0;'></div>").text(obj.reviewText);
