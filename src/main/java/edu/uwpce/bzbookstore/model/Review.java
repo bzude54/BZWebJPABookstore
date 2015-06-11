@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -34,9 +35,9 @@ public class Review implements Comparable, Serializable {
 	@Column(name = "REVIEW_TEXT")
 	private String reviewText;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "REVIEW_TIMESTAMP")
-	private Date timeStamp;
+	private Timestamp timeStamp;
 
 /*
 	@ManyToOne
@@ -47,7 +48,7 @@ public class Review implements Comparable, Serializable {
 
 	public Review() {	}
 	
-	public Review(Integer id, String isbn, String reviewtext, Date timestamp) {
+	public Review(Integer id, String isbn, String reviewtext, Timestamp timestamp) {
 		this.bookId = id;
 		this.bookIsbn = isbn;
 		this.reviewText = reviewtext;
@@ -95,7 +96,7 @@ public class Review implements Comparable, Serializable {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(Date timeStamp) {
+	public void setTimeStamp(Timestamp timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
@@ -115,17 +116,21 @@ public class Review implements Comparable, Serializable {
 	@Override
 	public int hashCode() {
 		logger.info("in hashcode method. review isbn is: " + getBookIsbn());
+		logger.info("in hashcode method. review timestamp is: " + this.getTimeStamp());
 
 		return getBookIsbn().hashCode();
 	}
+
 /*
 	@Override
 	public int hashCode() {
-	//	int result = getBookId().hashCode();
-		int result = 31 * result + getBookIsbn().hashCode();
-	//	result = 31 * result + getTimeStamp().hashCode();
+		logger.info("in hashcode method. review timestamp is: " + this.getTimeStamp());
+		int result = getBookId().hashCode();
+		result = 31 * result + getBookIsbn().hashCode();
+		result = 31 * result + getTimeStamp().hashCode();
 		return result;
 	}
+
 */
 
 /*

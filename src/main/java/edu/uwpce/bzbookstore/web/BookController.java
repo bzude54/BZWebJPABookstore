@@ -1,5 +1,6 @@
 package edu.uwpce.bzbookstore.web;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -147,10 +148,12 @@ public class BookController {
 */
         List<Review> reviews = bookService.findReviewsByIsbn(isbn);
 
+/*
         logger.info("reviews text1 = " + reviews.get(0).getTimeStamp());
         logger.info("reviews text2 = " + reviews.get(1).getTimeStamp());
         logger.info("reviews text3 = " + reviews.get(2).getTimeStamp());
         logger.info("reviews text4 = " + reviews.get(3).getTimeStamp());
+*/
 
         return reviews;
     }
@@ -159,7 +162,12 @@ public class BookController {
     @RequestMapping(value = "/books/reviews", method = RequestMethod.POST)
     public List<Review> postReview(HttpSession session, @RequestParam int id, @RequestParam String isbn, @RequestParam String reviewText) {
         logger.debug("IN THE POST REVIEWS HANDLER WITH ID: " + id + ", AND ISBN: " + isbn + ", review text: " + reviewText);
-        Review newreview = new Review(id, isbn, reviewText, new Date());
+
+        Date date = new Date();
+        logger.info("current time: " + new Timestamp(date.getTime()));
+
+
+        Review newreview = new Review(id, isbn, reviewText, new Timestamp(date.getTime()));
 //    	newreview.setReviewIsbn(bookIsbn);
 //    	newreview.setReviewText(review.getReviewText());
 //    	newreview.setTimeStamp(new Date());
